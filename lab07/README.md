@@ -8,7 +8,7 @@
     npm run dev
     ```    
 
-1. 新增 features/supports/world.js，設定 nightmare 初始化
+2. 新增 features/supports/world.js，設定 nightmare 初始化
 
     ``` js
     var {defineSupportCode} = require('cucumber');
@@ -28,7 +28,7 @@
     })
     ```
 
-1. 新增 ShoppingCart.feature
+3. 新增 ShoppingCart.feature
 
     ``` feature
     # language: zh-TW
@@ -46,7 +46,7 @@
             那麼 折扣後價格為 "480" 元
     ```
 
-1. 執行測試 `npm test`，產生框架並完成測試程式
+4. 執行測試 `npm test`，產生框架並完成測試程式
 
     ``` js
     var url = "http://localhost:8080"
@@ -79,4 +79,4 @@
     });
     ```
 
-1. 嘗試補上其他測試案例
+5. 嘗試補上其他測試案例
