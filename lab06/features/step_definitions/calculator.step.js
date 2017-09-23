@@ -2,7 +2,11 @@ var { defineSupportCode } = require('cucumber');
 var chai = require('chai');
 chai.should();
 
-defineSupportCode(function ({ Given, When, Then}) {
+defineSupportCode(function ({ Given, When, Then, Before }) {
+    Before({tags: "@foo"}, function () {
+        // 在 @foo 的 Feature 前執行
+    });
+
     Given('第一個數字為 {string}', function (first) {
         this.first=+first;
     });
