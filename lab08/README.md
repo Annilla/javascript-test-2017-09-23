@@ -8,7 +8,7 @@
     npm run dev
     ```    
 
-1. 使用 nightwatch.js 完成測試程式
+2. 使用 nightwatch.js 完成測試程式
 
     ``` js
     var url = "http://localhost:8080"
@@ -40,7 +40,7 @@
     });
     ```
 
-1. 執行測試
+3. 執行測試
 
     ```
     npm test

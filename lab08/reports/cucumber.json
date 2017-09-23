@@ -1,0 +1,88 @@
+[
+  {
+    "description": "    建立一個 購物車 應用程式，必須要能夠根據會員的等級，提供不同的折扣方式。\n\n    * 如果是 VIP 會員，只要購物滿 500 元，就一律有 8 折優惠\n    * 如果是 一般會員 (Normal)，除了購物必須要滿 1000 元，而且購買超過 3 件商品才能擁有 85 折優惠",
+    "keyword": "功能",
+    "name": "購物車",
+    "line": 2,
+    "id": "購物車",
+    "tags": [],
+    "uri": "features/ShoppingCart.feature",
+    "elements": [
+      {
+        "id": "購物車;vip-會員,-購買-200-元商品-3-件,-結帳金額為-480-元",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "VIP 會員, 購買 200 元商品 3 件, 結帳金額為 480 元",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "假設",
+            "line": 9,
+            "name": "進入購物車頁面",
+            "match": {
+              "location": "features/step_definitions/shoppingCart.step.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2906
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "並且",
+            "line": 10,
+            "name": "選擇第 \"1\" 個商品，價格為 \"200\" 元，數量 \"3\" 件",
+            "match": {
+              "location": "features/step_definitions/shoppingCart.step.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 132
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "並且",
+            "line": 11,
+            "name": "選擇會員等級為 \"VIP\"",
+            "match": {
+              "location": "features/step_definitions/shoppingCart.step.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 185
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "當",
+            "line": 12,
+            "name": "選擇完畢，計算價格",
+            "match": {
+              "location": "features/step_definitions/shoppingCart.step.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "那麼",
+            "line": 13,
+            "name": "折扣後價格為 \"480\" 元",
+            "match": {
+              "location": "features/step_definitions/shoppingCart.step.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 49
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
