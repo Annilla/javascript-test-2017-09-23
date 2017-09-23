@@ -1,0 +1,20 @@
+{
+  "name": "lab01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha tests/",
+    "dev": "http-server ."
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "http-server": "^0.10.0",
+    "mocha": "^3.5.3",
+    "nightmare": "^2.10.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  }
+}
