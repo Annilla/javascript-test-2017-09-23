@@ -4,7 +4,7 @@ var chai = require('chai');
 chai.should();
 
 describe('ShoppingCart', function () {
-    var url = "http://localhost:8080/src";
+    var rootUrl = "http://localhost:8080";
     var nightmare;
     before(() => {
         nightmare = Nightmare({
@@ -16,6 +16,33 @@ describe('ShoppingCart', function () {
         await nightmare.end();
     });
 
+    function ShoppingCartPage(nightmare, rootUrl){
+        this.rootUrl = rootUrl;
+        this.nightmare = nightmare;
+
+        this.visit = async () => {
+            var url = `${this.rootUrl}/src/`;
+            await this.nightmare.goto(url);
+        }
+
+        this.updateQty = async (id, qty) =>{
+            await this.nightmare
+                .insert(`div.product:nth-child(${id}) input[name=qty]`, false)
+                .insert(`div.product:nth-child(${id}) input[name=qty]`, qty);
+        }
+
+        this.selectLevel = async(level)=>{
+            await this.nightmare
+                .select('select[name=memberLevel]', level);
+        }
+
+        this.getPrice = async()=>{
+            var price = await this.nightmare
+                .evaluate(() => document.querySelector('#price').innerText);
+            return parseInt(price);
+        }
+    }
+
     it('VIP 會員, 購買 200 元商品 2 件, 結帳金額為 400 元', async () => {
         // Arrange
         var productId = 1;
@@ -25,14 +52,14 @@ describe('ShoppingCart', function () {
         var actual = 0;
 
         // Act
-        var priceText = await nightmare.goto(url)
-            .viewport(1000, 760)
-            .insert(`div.product:nth-child(1) input[name=qty]`, false)
-            .insert(`div.product:nth-child(1) input[name=qty]`, qty)
-            .select('select[name=memberLevel]', 'VIP')
-            .evaluate(() => document.querySelector('#price').innerText);
-
-        actual = parseInt(priceText);
+        var shoppingCartPage = new ShoppingCartPage(nightmare, rootUrl);
+        await nightmare.viewport(1000, 760);
+    
+        await shoppingCartPage.visit();
+        await shoppingCartPage.updateQty(productId, qty);
+        await shoppingCartPage.selectLevel(level);
+    
+        actual = await shoppingCartPage.getPrice();
 
         // Assert
         actual.should.equal(expected);

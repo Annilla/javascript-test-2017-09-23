@@ -33,7 +33,7 @@
     }
     ```
 
-1. 測試改用 PageObject
+2. 測試改用 PageObject
 
     ``` js
     // Act
