@@ -6,7 +6,7 @@
 
     為了根據顧客消費金額，提供專門計算金額的 Calculator 用來計算折扣後的金額，當金額高於 200 元時，可享有 80% 折扣
 
-1. 撰寫 Feature 
+2. 撰寫 Feature 
 
     ``` feature
     # language: zh-TW
@@ -20,7 +20,7 @@
         那麼 折扣後金額應該為 "200" 元
     ```
 
-1. 執行測試 `npm test`，產生 cucumber 框架，並完成測試邏輯
+3. 執行測試 `npm test`，產生 cucumber 框架，並完成測試邏輯
 
     ``` js
     Given('顧客消費總金額為 {string} 元', function (totalPrice) {
@@ -37,9 +37,9 @@
     });
     ```
 
-1. 執行測試 `npm test` ，看到紅燈
+4. 執行測試 `npm test` ，看到紅燈
 
-1. 完成程式碼部分
+5. 完成程式碼部分
 
     ``` js
     Calculator.prototype.Calculate = function (totalPrice) {
@@ -51,4 +51,4 @@
     }
     ```
 
-1. 執行測試 `npm test` ，看到綠燈
+6. 執行測試 `npm test` ，看到綠燈
