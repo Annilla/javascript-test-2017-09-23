@@ -8,7 +8,7 @@
     npm install --save-dev istanbul
     ```
 
-1. 新增 npm coverage alias, 方便執行測試涵蓋率
+2. 新增 npm coverage alias, 方便執行測試涵蓋率
 
     ```
     "scripts": {
@@ -16,10 +16,10 @@
     } 
     ```
 
-1. 執行測試涵蓋率，觀察測試結果是否正確
+3. 執行測試涵蓋率，觀察測試結果是否正確
 
     ```
     npm run coverage
     ```
 
-1. 讓測試涵蓋率達到 100 %
+4. 讓測試涵蓋率達到 100 %
