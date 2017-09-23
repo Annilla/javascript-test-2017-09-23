@@ -2,50 +2,37 @@ require('bootstrap');
 require('bootstrap/dist/css/bootstrap.css');
 require('../css/custom.css');
 
+import ShoppingCart from './shoppingCart';
+
 $(document).ready(function () {
-    $('input[name=qty]').on('change', function () {
-        var cart = [];
-        $('.product').each(function () {
-            var price = $(this).find('p').text();
-            var qty = $(this).find('input').val();
-
-            cart.push({
-                price: price,
-                qty: qty
-            })
-        });
-
-        var level = $('select[name=memberLevel]').val();
-
-        var totalPrice = cart.reduce((s, i) => s += i.price * i.qty, 0);
-        $('#totalPrice').text(totalPrice);
-
-        var totalQty = cart.reduce((s, i) => s += parseInt(i.qty), 0);
-        $('#totalQty').text(totalQty);
-
-        var price = 0;
-        if (level === 'VIP') {
-            if(totalPrice > 500){
-                price = totalPrice * 0.8;
-                $('#price').text(price);
-            }
-            else{
-                $('#price').text(totalPrice);
-            }
-        }
-        else if(level === 'Normal'){
-            if(totalPrice > 1000 && totalQty > 3){
-                price = totalPrice * 0.85;
-                $('#price').text(price);
-            }
-            else {
-                $('#price').text(totalPrice);
-            }
-        }
-    });
-
-    $('select').on('change', function () {
-        var level = $(this).val();
-        $('input[name=qty]:eq(0)').trigger('change');
-    })
+    $('input[name=qty]').on('change', CalculatePrice);
+    $('select').on('change', CalculatePrice);
 });
+
+function CalculatePrice() {
+    // Get Data From UI
+    var cart = getCart();
+    var level = $('select[name=memberLevel]').val();
+
+    // Business Logic
+    var shoppingCart = new ShoppingCart();
+    var price = shoppingCart.Calculate(level, cart);
+
+    // Set Data to UI
+    $('#totalPrice').text(totalPrice);
+    $('#totalQty').text(totalQty);
+    $('#price').text(price);
+}
+
+function getCart() {
+    var cart = [];
+    $('.product').each(function() {
+        var price = $(this).find('p').text();
+        var qty = $(this).find('input').val();
+        cart.push({
+            price: price,
+            qty: qty
+        });
+    });
+    return cart;
+}

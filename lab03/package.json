@@ -4,11 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha tests/",
+    "test": "mocha --require babel-polyfill --compilers js:babel-register ./tests",
     "dev": "webpack-dev-server --devtool eval-source-map --progress --colors --hot --inline --content-base ./dist",
     "build": "webpack --progress --colors"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "css-loader": "^0.28.7",
     "file-loader": "^0.11.2",

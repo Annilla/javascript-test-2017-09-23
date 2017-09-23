@@ -26,7 +26,7 @@
     $('#price').text(price);
     ```
 
-1. 把計算邏輯抽到 shoppingCart.js
+2. 把計算邏輯抽到 shoppingCart.js
 
     ``` js
     function ShoppingCart() {
@@ -56,6 +56,6 @@
     module.exports = ShoppingCart;
     ```
 
-1. 替 shoppingCart.js 撰寫測試
+3. 替 shoppingCart.js 撰寫測試
 
-1. 繼續重構、測試
+4. 繼續重構、測試
