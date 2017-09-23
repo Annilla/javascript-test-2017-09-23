@@ -8,13 +8,13 @@
     npm run dev
     ```    
 
-1. 啟動測試
+2. 啟動測試
 
     ```
     npm test
     ```
 
-1. 設定 `cucumber-html-reporter`，打開 reports/report.js
+3. 設定 `cucumber-html-reporter`，打開 reports/report.js
 
     ```
     var reporter = require('cucumber-html-reporter');
@@ -38,7 +38,7 @@
     reporter.generate(options);
     ```
 
-1. 產生報表
+4. 產生報表
 
     ```
     npm run report
